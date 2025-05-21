@@ -1,44 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Grievance Portal for Booboo</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Floating emojis: butterflies, clouds, sparkles, blue hearts -->
-  <img src="butterfly.WEBP" class="floating-img butterfly" alt="Butterfly" style="top: 12%; left: 8%;" />
-  <img src="butterfly.WEBP" class="floating-img butterfly" alt="Butterfly" style="top: 38%; left: 45%;" />
-  <img src="butterfly.WEBP" class="floating-img butterfly" alt="Butterfly" style="top: 70%; left: 15%;" />
-  <img src="butterfly.WEBP" class="floating-img butterfly" alt="Butterfly" style="top: 55%; left: 75%;" />
-  <img src="butterfly.WEBP" class="floating-img butterfly" alt="Butterfly" style="top: 25%; left: 65%;" />
+  <!-- Multiple floating butterflies -->
+  <img src="butterfly.WEBP" class="floating-img butterfly" alt="Butterfly" style="top: 8%; left: 15%;" />
+  <img src="butterfly.WEBP" class="floating-img butterfly" alt="Butterfly" style="top: 30%; left: 65%;" />
+  <img src="butterfly.WEBP" class="floating-img butterfly" alt="Butterfly" style="top: 55%; left: 25%;" />
+  <img src="butterfly.WEBP" class="floating-img butterfly" alt="Butterfly" style="top: 75%; left: 80%;" />
+  <img src="butterfly.WEBP" class="floating-img butterfly" alt="Butterfly" style="top: 90%; left: 45%;" />
 
-  <img src="sparkle.PNG" class="floating-img sparkle" alt="Sparkle" style="top: 10%; left: 20%;" />
-  <img src="sparkle.PNG" class="floating-img sparkle" alt="Sparkle" style="top: 50%; left: 10%;" />
-  <img src="sparkle.PNG" class="floating-img sparkle" alt="Sparkle" style="top: 35%; left: 80%;" />
-  <img src="sparkle.PNG" class="floating-img sparkle" alt="Sparkle" style="top: 70%; left: 50%;" />
+  <!-- Multiple floating sparkles -->
+  <img src="sparkle.PNG" class="floating-img sparkle" alt="Sparkle" style="top: 10%; left: 40%;" />
+  <img src="sparkle.PNG" class="floating-img sparkle" alt="Sparkle" style="top: 35%; left: 10%;" />
+  <img src="sparkle.PNG" class="floating-img sparkle" alt="Sparkle" style="top: 60%; left: 55%;" />
+  <img src="sparkle.PNG" class="floating-img sparkle" alt="Sparkle" style="top: 80%; left: 30%;" />
+  <img src="sparkle.PNG" class="floating-img sparkle" alt="Sparkle" style="top: 95%; left: 75%;" />
 
-  <!-- Clouds as big emojis, scattered -->
-  <div class="emoji-floating" style="top: 5%; left: 10%;">☁️</div>
-  <div class="emoji-floating" style="top: 60%; left: 15%;">☁️</div>
-  <div class="emoji-floating" style="top: 20%; left: 80%;">☁️</div>
-  <div class="emoji-floating" style="top: 75%; left: 70%;">☁️</div>
-  <div class="emoji-floating" style="top: 40%; left: 40%;">☁️</div>
+  <!-- Large emoji clouds scattered -->
+  <div class="emoji-floating large-cloud" style="top: 5%; left: 5%;">☁️</div>
+  <div class="emoji-floating large-cloud" style="top: 20%; left: 70%;">☁️</div>
+  <div class="emoji-floating large-cloud" style="top: 40%; left: 25%;">☁️</div>
+  <div class="emoji-floating large-cloud" style="top: 60%; left: 80%;">☁️</div>
+  <div class="emoji-floating large-cloud" style="top: 85%; left: 15%;">☁️</div>
+  <div class="emoji-floating large-cloud" style="top: 100%; left: 50%;">☁️</div>
 
-  <!-- Sparkle and blue heart emojis -->
-  <div class="emoji-floating" style="top: 10%; left: 12%;">✨</div>
-  <div class="emoji-floating" style="top: 55%; left: 40%;">💙</div>
-  <div class="emoji-floating" style="top: 25%; left: 75%;">✨</div>
-  <div class="emoji-floating" style="top: 70%; left: 60%;">💙</div>
-  <div class="emoji-floating" style="top: 40%; left: 20%;">✨</div>
+  <!-- Large emoji blue hearts scattered -->
+  <div class="emoji-floating large-heart" style="top: 12%; left: 35%;">💙</div>
+  <div class="emoji-floating large-heart" style="top: 30%; left: 85%;">💙</div>
+  <div class="emoji-floating large-heart" style="top: 52%; left: 10%;">💙</div>
+  <div class="emoji-floating large-heart" style="top: 72%; left: 55%;">💙</div>
+  <div class="emoji-floating large-heart" style="top: 88%; left: 70%;">💙</div>
 
-  <!-- The grievance portal box -->
+  <!-- Large emoji sparkles scattered -->
+  <div class="emoji-floating large-sparkle" style="top: 15%; left: 20%;">✨</div>
+  <div class="emoji-floating large-sparkle" style="top: 33%; left: 60%;">✨</div>
+  <div class="emoji-floating large-sparkle" style="top: 50%; left: 35%;">✨</div>
+  <div class="emoji-floating large-sparkle" style="top: 70%; left: 15%;">✨</div>
+  <div class="emoji-floating large-sparkle" style="top: 90%; left: 90%;">✨</div>
+
+  <!-- The grievance box -->
   <div class="grievance-box">
     <h1 class="title">Grievance Portal</h1>
     <p class="subtitle">Hey love, Aahad/Booboo! Pour your heart out here – I’m always ready to listen and care.</p>
@@ -51,7 +58,7 @@
         name="query"
         placeholder="Write your query or feelings here..."
         required
-        rows="5"
+        rows="6"
       ></textarea>
       <button type="submit">Send with Love</button>
     </form>
@@ -63,7 +70,6 @@
   </div>
 
 <script>
-  // Simple form submission alert (you can customize backend later)
   const form = document.getElementById('grievance-form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
