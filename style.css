@@ -1,147 +1,211 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
-  font-family: 'Quicksand', sans-serif;
-  position: relative;
-  overflow: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grievance Portal for Booboo</title>
 
-.portal-box {
-  background: #cfe8fc;
-  border: 2px dashed #7baedc;
-  border-radius: 20px;
-  padding: 30px;
-  max-width: 450px;
-  margin: 100px auto;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  position: relative;
-  z-index: 2;
-}
+<!-- Google Fonts: Use something stylish but readable -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet" />
 
-h1 {
-  color: #2e6da4;
-  font-size: 24px;
-  margin-bottom: 10px;
-}
+<style>
+  /* Reset & base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* beautiful blue gradient */
+    overflow: hidden;
+    position: relative;
+    color: white;
+  }
 
-.love-note {
-  font-size: 14px;
-  color: #444;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
+  /* Background butterfly floating animation */
+  .butterfly {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    pointer-events: none;
+    animation-name: floatButterfly;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+  }
 
-textarea {
-  width: 100%;
-  height: 100px;
-  border-radius: 12px;
-  border: 1px solid #aacfee;
-  padding: 10px;
-  font-family: inherit;
-  font-size: 14px;
-  resize: none;
-  background-color: #f4faff;
-}
+  /* Spread butterflies at different spots and speeds */
+  .butterfly:nth-child(1) {
+    top: 20%;
+    left: 15%;
+    animation-duration: 6s;
+  }
+  .butterfly:nth-child(2) {
+    top: 60%;
+    left: 35%;
+    animation-duration: 8s;
+  }
+  .butterfly:nth-child(3) {
+    top: 40%;
+    left: 70%;
+    animation-duration: 5s;
+  }
+  .butterfly:nth-child(4) {
+    top: 80%;
+    left: 80%;
+    animation-duration: 7s;
+  }
+  .butterfly:nth-child(5) {
+    top: 10%;
+    left: 80%;
+    animation-duration: 6.5s;
+  }
 
-button {
-  margin-top: 15px;
-  padding: 10px 25px;
-  background: #7baedc;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
+  @keyframes floatButterfly {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); }
+    50% { transform: translateY(-20px) translateX(10px) rotate(10deg); }
+    100% { transform: translateY(0) translateX(0) rotate(0deg); }
+  }
 
-button:hover {
-  background: #6899c5;
-}
+  /* Cloud emojis spread across background */
+  .cloud {
+    position: fixed;
+    font-size: 6rem;
+    opacity: 0.15;
+    user-select: none;
+    pointer-events: none;
+  }
+  .cloud:nth-child(6) { top: 5%; left: 10%; }
+  .cloud:nth-child(7) { top: 15%; left: 60%; }
+  .cloud:nth-child(8) { top: 50%; left: 40%; }
+  .cloud:nth-child(9) { top: 80%; left: 20%; }
+  .cloud:nth-child(10) { top: 70%; left: 80%; }
 
-.clouds {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 32px;
-  animation: floatClouds 20s linear infinite;
-  z-index: 1;
-}
+  /* Sparkles scattered */
+  .sparkle {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    animation: twinkle 3s infinite ease-in-out;
+    opacity: 0.8;
+  }
+  .sparkle:nth-child(11) { top: 25%; left: 25%; animation-delay: 0s;}
+  .sparkle:nth-child(12) { top: 35%; left: 75%; animation-delay: 1s;}
+  .sparkle:nth-child(13) { top: 60%; left: 50%; animation-delay: 2s;}
+  .sparkle:nth-child(14) { top: 85%; left: 30%; animation-delay: 0.5s;}
+  .sparkle:nth-child(15) { top: 15%; left: 90%; animation-delay: 1.5s;}
 
-@keyframes floatClouds {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(100vw); }
-}
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.8; transform: scale(1);}
+    50% { opacity: 0.3; transform: scale(1.2);}
+  }
 
-.hearts span {
-  position: absolute;
-  bottom: -30px;
-  font-size: 20px;
-  animation: floatHearts 10s linear infinite;
-  opacity: 0.6;
-}
+  /* Center grievance box */
+  .grievance-box {
+    position: relative;
+    max-width: 400px;
+    background: rgba(10, 50, 100, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+    padding: 30px 40px;
+    margin: 60px auto;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+  }
 
-.hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
-.hearts span:nth-child(2) { left: 30%; animation-delay: 2s; }
-.hearts span:nth-child(3) { left: 50%; animation-delay: 4s; }
-.hearts span:nth-child(4) { left: 70%; animation-delay: 6s; }
-.hearts span:nth-child(5) { left: 90%; animation-delay: 8s; }
+  /* Couple pic styling */
+  .couple-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #82c0ff;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px #5aa2ff;
+  }
 
-@keyframes floatHearts {
-  0% { bottom: -30px; transform: translateY(0); }
-  100% { bottom: 100vh; transform: translateY(-100vh); }
-}
+  /* Heading fonts */
+  .title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #aad8ff;
+  }
 
-.butterfly {
-  position: absolute;
-  width: 40px;
-  animation: flyButterfly 10s linear infinite;
-  z-index: 1;
-}
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #cfe9ff;
+    font-weight: 600;
+  }
 
-.butterfly img {
-  width: 100%;
-  height: auto;
-}
+  /* Button style */
+  button {
+    background: linear-gradient(45deg, #4e8cff, #2674ff);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(38, 116, 255, 0.5);
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: linear-gradient(45deg, #2674ff, #4e8cff);
+  }
 
-.butterfly1 { top: 100px; left: 10%; animation-delay: 0s; }
-.butterfly2 { top: 200px; left: 40%; animation-delay: 3s; }
-.butterfly3 { top: 150px; left: 70%; animation-delay: 6s; }
+  /* Audio player styling */
+  audio {
+    width: 100%;
+    margin-top: 25px;
+    outline: none;
+    filter: drop-shadow(0 0 5px #4a8aff);
+    border-radius: 10px;
+    background: rgba(30, 70, 130, 0.7);
+  }
 
-@keyframes flyButterfly {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
-  100% { transform: translateY(0) rotate(0deg); }
-}
+</style>
+</head>
+<body>
 
-.sparkle-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  opacity: 0.2;
-  z-index: 0;
-  pointer-events: none;
-}
+<!-- Butterflies floating all over -->
+<img src="butterfly.WEBP" alt="Butterfly" class="butterfly" />
+<img src="butterfly.WEBP" alt="Butterfly" class="butterfly" />
+<img src="butterfly.WEBP" alt="Butterfly" class="butterfly" />
+<img src="butterfly.WEBP" alt="Butterfly" class="butterfly" />
+<img src="butterfly.WEBP" alt="Butterfly" class="butterfly" />
 
-.music {
-  display: block;
-  margin: 20px auto;
-  filter: hue-rotate(190deg);
-  z-index: 2;
-  position: relative;
-}
+<!-- Clouds emojis spread out -->
+<div class="cloud" style="top:5%; left:10%;">☁️</div>
+<div class="cloud" style="top:15%; left:60%;">☁️</div>
+<div class="cloud" style="top:50%; left:40%;">☁️</div>
+<div class="cloud" style="top:80%; left:20%;">☁️</div>
+<div class="cloud" style="top:70%; left:80%;">☁️</div>
 
-.couple-image {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 80px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  z-index: 2;
-}
+<!-- Sparkles -->
+<img src="sparkle.PNG" alt="Sparkle" class="sparkle" />
+<img src="sparkle.PNG" alt="Sparkle" class="sparkle" />
+<img src="sparkle.PNG" alt="Sparkle" class="sparkle" />
+<img src="sparkle.PNG" alt="Sparkle" class="sparkle" />
+<img src="sparkle.PNG" alt="Sparkle" class="sparkle" />
+
+<!-- Grievance box -->
+<div class="grievance-box">
+  <img src="image.jpg.JPG" alt="Couple Pic" class="couple-pic" />
+  <h1 class="title">Grievance Portal</h1>
+  <p class="subtitle">For Aahad & Booboo, with all my love.</p>
+  <button>Send with love</button>
+
+  <!-- Audio player -->
+  <audio controls autoplay loop>
+    <source src="mia-and-sebastian-theme.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+</body>
+</html>
