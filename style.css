@@ -1,72 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Sacramento&display=swap');
+/* Fonts & base */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap');
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 
 body {
-  background: #e0efff;
-  height: 100vh;
+  background: #f0f6ff; /* very soft pastel blue */
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   padding: 1rem;
+  color: #3a405a; /* gentle dark blue-gray */
 }
 
-.card {
-  background: white;
-  border-radius: 20px;
-  max-width: 350px;
-  width: 100%;
-  box-shadow: 0 15px 40px rgba(30, 58, 138, 0.15);
+.container {
+  background: #ffffffdd; /* white with slight transparency */
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(58, 64, 90, 0.1);
+  width: 320px;
   padding: 2rem 1.8rem 2.5rem;
   text-align: center;
   position: relative;
-  animation: fadeUp 1.2s ease forwards;
+  animation: fadeInUp 1s ease forwards;
 }
 
 .profile {
-  width: 110px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #4a90e2;
-  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
-  margin-bottom: 1rem;
-  animation: pulse 3s ease-in-out infinite;
+  border: 2.5px solid #a1c8ff;
+  margin-bottom: 1.2rem;
+  animation: pulse 4s ease-in-out infinite;
 }
 
 h1 {
-  font-family: 'Sacramento', cursive;
-  font-size: 2.8rem;
-  color: #2d4bb7;
-  margin-bottom: 0.3rem;
-  letter-spacing: 0.05em;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #5271ff; /* pastel blue */
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.06em;
 }
 
-.sweet-msg {
+.message {
   font-size: 1rem;
-  color: #4a5ea8;
-  font-weight: 300;
-  margin-bottom: 1.6rem;
+  font-weight: 400;
+  color: #61718b;
+  margin-bottom: 1.8rem;
   line-height: 1.4;
+  font-style: italic;
   user-select: none;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 form input[type="text"] {
   width: 100%;
-  padding: 0.55rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 14px;
-  border: 2px solid #a4c6ff;
-  margin-bottom: 1rem;
+  border: 1.8px solid #a1c8ff;
+  background: #f9fbff;
   font-size: 1rem;
-  color: #2d4bb7;
   font-weight: 600;
-  background: #f0f7ff;
+  color: #5271ff;
+  margin-bottom: 1rem;
   cursor: not-allowed;
 }
 
@@ -74,94 +74,92 @@ form textarea {
   width: 100%;
   padding: 0.7rem 1rem;
   border-radius: 14px;
-  border: 2px solid #a4c6ff;
+  border: 1.8px solid #a1c8ff;
   font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   resize: none;
-  color: #2d4bb7;
+  color: #3a405a;
   transition: border-color 0.3s ease;
-}
-
-form textarea:focus {
-  outline: none;
-  border-color: #4a90e2;
-  box-shadow: 0 0 12px #4a90e2aa;
 }
 
 form textarea::placeholder {
   font-style: italic;
-  color: #a3b9db;
+  color: #9ab3ff;
+}
+
+form textarea:focus {
+  outline: none;
+  border-color: #5271ff;
+  box-shadow: 0 0 8px #8caaffbb;
 }
 
 button[type="submit"] {
+  width: 100%;
   margin-top: 1.3rem;
-  background: #4a90e2;
+  background: #81a8ff;
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.1rem;
-  padding: 0.7rem 0;
+  padding: 0.65rem 0;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  width: 100%;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   transition: background 0.3s ease;
-  box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 6px 16px rgba(129, 168, 255, 0.5);
 }
 
 button[type="submit"]:hover {
-  background: #3366cc;
-  box-shadow: 0 14px 40px rgba(51, 102, 204, 0.5);
+  background: #5271ff;
+  box-shadow: 0 10px 30px rgba(82, 113, 255, 0.7);
 }
 
 #response {
   margin-top: 1rem;
   font-size: 1rem;
   font-weight: 600;
-  color: #1e3a8a;
-  min-height: 1.3rem;
+  min-height: 1.2rem;
   user-select: none;
 }
 
-.music-container {
+.music-control {
   margin-top: 2rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
 }
 
-.music-container button {
-  background: #d1e3ff;
+.music-control button {
+  background: #e3edff;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 12px;
-  font-size: 1.5rem;
+  border-radius: 14px;
+  font-size: 1.6rem;
   cursor: pointer;
-  color: #2d4bb7;
-  box-shadow: 0 6px 14px rgba(74, 144, 226, 0.35);
+  color: #5271ff;
+  box-shadow: 0 4px 12px rgba(82, 113, 255, 0.3);
   transition: background 0.3s ease;
 }
 
-.music-container button:hover {
-  background: #4a90e2;
+.music-control button:hover {
+  background: #5271ff;
   color: white;
-  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.6);
+  box-shadow: 0 6px 20px rgba(82, 113, 255, 0.6);
 }
 
 .stickers {
-  margin-top: 1.8rem;
-  font-size: 1.8rem;
+  margin-top: 2rem;
+  font-size: 1.6rem;
   user-select: none;
-  opacity: 0.75;
-  animation: floatStickers 6s ease-in-out infinite alternate;
+  opacity: 0.85;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  animation: floatUpDown 6s ease-in-out infinite alternate;
 }
 
 .stickers span {
-  margin: 0 6px;
   display: inline-block;
-  transform-origin: 50% 50%;
-  animation: bounceSticker 4s ease-in-out infinite;
+  animation: bounce 4s ease-in-out infinite;
 }
 
 .stickers span:nth-child(odd) {
@@ -176,17 +174,17 @@ button[type="submit"]:hover {
 
 @keyframes pulse {
   0%, 100% {
-    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+    box-shadow: 0 0 6px 3px #a1c8ff99;
   }
   50% {
-    box-shadow: 0 15px 40px rgba(74, 144, 226, 0.65);
+    box-shadow: 0 0 12px 6px #a1c8ffcc;
   }
 }
 
-@keyframes fadeUp {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -194,18 +192,16 @@ button[type="submit"]:hover {
   }
 }
 
-@keyframes floatStickers {
+@keyframes floatUpDown {
   0% {
     transform: translateY(0);
-    opacity: 0.7;
   }
   100% {
-    transform: translateY(-10px);
-    opacity: 1;
+    transform: translateY(-12px);
   }
 }
 
-@keyframes bounceSticker {
+@keyframes bounce {
   0%, 100% {
     transform: translateY(0);
   }
