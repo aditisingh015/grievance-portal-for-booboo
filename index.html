@@ -3,30 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Grievance Portal for Booboo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Booboo's Grievance Portal 💙</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div class="container">
-    <img src="image.jpg" alt="Aahad & Booboo" class="profile-pic" />
-    <h1>Aahad / Booboo</h1>
-    <p class="subtext">Because even love needs a little venting.</p>
-    
-    <form>
-      <label for="name">Your Name (or Nickname):</label>
-      <input type="text" id="name" name="name" value="Aahad / Booboo" required />
+    <header>
+      <h1>Booboo's Grievance Portal 💙</h1>
+      <p class="subtitle">Tell me what's on your mind, aahad! ✨</p>
+    </header>
 
-      <label for="grievance">What's bothering you, love?</label>
-      <textarea id="grievance" name="grievance" rows="5" placeholder="Tell me everything..." required></textarea>
+    <section class="image-section">
+      <img src="image.jpg" alt="Booboo's Picture" class="profile-image" />
+    </section>
 
-      <button type="submit">Send Love Complaint</button>
-    </form>
-    
-    <audio controls autoplay loop>
-      <source src="mia-and-sebastian-theme.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
+    <section class="form-section">
+      <form id="grievanceForm">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" value="aahad/booboo" required />
+
+        <label for="grievance">Your Grievance 💌</label>
+        <textarea id="grievance" name="grievance" rows="5" placeholder="Write your heart out..."></textarea>
+
+        <button type="submit" class="btn">Send Love & Feedback 💖</button>
+      </form>
+
+      <div id="response" class="response"></div>
+    </section>
+
+    <section class="music-player">
+      <audio id="audio" src="mia-and-sebastian-theme.mp3" preload="auto"></audio>
+      <button id="playPauseBtn" aria-label="Play/Pause Music">▶️</button>
+      <span class="music-text">Play/ Pause "Mia & Sebastian Theme"</span>
+    </section>
+
   </div>
+
+  <script>
+    const form = document.getElementById('grievanceForm');
+    const response = document.getElementById('response');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const audio = document.getElementById('audio');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = form.name.value.trim() || 'aahad/booboo';
+      const grievance = form.grievance.value.trim();
+      if (!grievance) {
+        response.textContent = "Please share your grievance 💙";
+        response.style.color = '#f44336'; // red
+        return;
+      }
+      response.style.color = '#0e68c7';
+      response.innerHTML = `Thank you, <strong>${name}</strong>! Your message has been received. 💌`;
+      form.grievance.value = '';
+    });
+
+    playPauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸️';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶️';
+      }
+    });
+  </script>
 </body>
 </html>
