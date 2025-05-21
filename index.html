@@ -1,75 +1,68 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Booboo’s Portal 💙</title>
-
-  <!-- Elegant fonts: Playfair Display for headings, Quicksand for text -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet" />
-
+  <title>Booboo’s Portal</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Work+Sans:wght@300;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <main class="container">
-    <img src="image.jpg" alt="Booboo" class="profile" />
-
-    <h1>Hey, Booboo 💙</h1>
-
-    <p class="message">
-      You’re my gentle calm in every storm, my sweetest melody.  
-      This little space is just for you — whisper your heart,  
-      and I’m here to listen always.
-    </p>
-
-    <form id="grievanceForm" autocomplete="off">
-      <input type="text" id="name" name="name" value="aahad/booboo" readonly />
-      <textarea id="grievance" name="grievance" placeholder="Write your thoughts here..." rows="3"></textarea>
-      <button type="submit" aria-label="Send message">Send 💌</button>
-    </form>
-
-    <p id="response" aria-live="polite"></p>
-
-    <div class="music-control">
-      <audio id="audio" src="mia-and-sebastian-theme.mp3" preload="auto"></audio>
-      <button id="playPauseBtn" aria-label="Play or pause music">▶️</button>
+  <div class="container">
+    <div class="floating-stickers">
+      <img src="https://i.imgur.com/9Y3jMyl.png" alt="sparkle" class="sticker sparkle" />
+      <img src="https://i.imgur.com/3y7H9KJ.png" alt="heart" class="sticker heart" />
+      <img src="https://i.imgur.com/4uNcsWm.png" alt="flower" class="sticker flower" />
     </div>
 
-    <div class="stickers">
-      <span>🌸</span>
-      <span>✨</span>
-      <span>💫</span>
-      <span>🌙</span>
-      <span>💙</span>
+    <div class="card">
+      <img src="image.jpg" alt="Booboo" class="profile" />
+      <h1>Hi Booboo 💙</h1>
+      <p class="note">
+        You are my safe space, my moonlight, and my calm. This is our soft little portal — a space to speak your heart freely, always.
+      </p>
+
+      <form id="grievanceForm">
+        <input type="text" name="name" value="aahad/booboo" readonly />
+        <textarea name="grievance" placeholder="Whisper something sweet or anything on your mind..."></textarea>
+        <button type="submit">Send it with love 💌</button>
+      </form>
+
+      <p id="response"></p>
+
+      <div class="music">
+        <audio id="audio" src="mia-and-sebastian-theme.mp3" preload="auto"></audio>
+        <button id="musicBtn">▶️</button>
+      </div>
     </div>
-  </main>
+  </div>
 
   <script>
-    const form = document.getElementById('grievanceForm');
-    const response = document.getElementById('response');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const audio = document.getElementById('audio');
+    const form = document.getElementById("grievanceForm");
+    const response = document.getElementById("response");
+    const audio = document.getElementById("audio");
+    const musicBtn = document.getElementById("musicBtn");
 
-    form.addEventListener('submit', e => {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
-      const grievance = form.grievance.value.trim();
-      if (!grievance) {
-        response.textContent = "Please share something, love.";
-        response.style.color = "#e07a5f";
+      const msg = form.grievance.value.trim();
+      if (!msg) {
+        response.textContent = "Say something, my love!";
+        response.style.color = "#e76f51";
         return;
       }
-      response.style.color = "#3a405a";
-      response.textContent = "Got it, Booboo! Sending you love 💙";
+      response.textContent = "Noted with love. I'm listening always. 💙";
+      response.style.color = "#264653";
       form.grievance.value = "";
     });
 
-    playPauseBtn.addEventListener('click', () => {
+    musicBtn.addEventListener("click", () => {
       if (audio.paused) {
         audio.play();
-        playPauseBtn.textContent = '⏸️';
+        musicBtn.textContent = "⏸️";
       } else {
         audio.pause();
-        playPauseBtn.textContent = '▶️';
+        musicBtn.textContent = "▶️";
       }
     });
   </script>
