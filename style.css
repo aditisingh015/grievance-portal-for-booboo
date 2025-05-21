@@ -1,0 +1,130 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f0f8ff; /* AliceBlue text for a soft feel */
+}
+
+/* Body and background */
+body {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  background: rgba(30, 60, 114, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  padding: 40px 50px;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+/* Heading */
+.container h1 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Name input (readonly) */
+#name {
+  background-color: #16325c;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.15rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: #a9cce3;
+  user-select: none;
+  box-shadow: inset 0 0 8px #2a5298;
+}
+
+/* Message textarea */
+#message {
+  background-color: #1f497d;
+  border: none;
+  padding: 15px 20px;
+  font-size: 1rem;
+  border-radius: 12px;
+  resize: vertical;
+  min-height: 100px;
+  color: #e1eaf7;
+  box-shadow: inset 0 0 10px #2a5298;
+  transition: box-shadow 0.3s ease;
+}
+
+#message:focus {
+  outline: none;
+  box-shadow: 0 0 12px #7fb3ff;
+  background-color: #2b5aa1;
+}
+
+/* Submit button */
+button {
+  background: #448aff;
+  border: none;
+  padding: 14px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 18px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(68, 138, 255, 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background: #6ea8ff;
+  box-shadow: 0 8px 20px rgba(110, 168, 255, 0.8);
+}
+
+/* Sweet note below form */
+.note {
+  margin-top: 28px;
+  font-style: italic;
+  font-size: 1rem;
+  color: #cbd5e1;
+  text-shadow: 0 0 4px #3765b8;
+}
+
+/* Photo styling */
+.photo {
+  margin-top: 28px;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3.5px solid #7fb3ff;
+  box-shadow: 0 6px 20px rgba(68, 138, 255, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.photo:hover {
+  transform: scale(1.05) rotate(3deg);
+  box-shadow: 0 8px 25px rgba(110, 168, 255, 0.9);
+}
+
+/* Audio controls hidden (only autoplay looping) */
+audio {
+  display: none;
+}
