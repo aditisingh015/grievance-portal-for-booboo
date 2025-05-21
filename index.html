@@ -3,35 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Booboo's Portal 💙</title>
+  <title>Booboo’s Portal 💙</title>
+
+  <!-- Elegant fonts: Playfair Display for headings, Quicksand for text -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Sacramento&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <main class="card">
+  <main class="container">
     <img src="image.jpg" alt="Booboo" class="profile" />
-    <h1>Hey Booboo 💙</h1>
-    <p class="sweet-msg">
-      You’re my sunshine on cloudy days, my calm in the chaos.  
-      This portal is a little space just for you — share anything,  
-      and I’m all ears, always.
+
+    <h1>Hey, Booboo 💙</h1>
+
+    <p class="message">
+      You’re my gentle calm in every storm, my sweetest melody.  
+      This little space is just for you — whisper your heart,  
+      and I’m here to listen always.
     </p>
 
     <form id="grievanceForm" autocomplete="off">
       <input type="text" id="name" name="name" value="aahad/booboo" readonly />
-      <textarea id="grievance" name="grievance" placeholder="Whisper your thoughts..." rows="4"></textarea>
+      <textarea id="grievance" name="grievance" placeholder="Write your thoughts here..." rows="3"></textarea>
       <button type="submit" aria-label="Send message">Send 💌</button>
     </form>
 
-    <div id="response"></div>
+    <p id="response" aria-live="polite"></p>
 
-    <div class="music-container">
+    <div class="music-control">
       <audio id="audio" src="mia-and-sebastian-theme.mp3" preload="auto"></audio>
       <button id="playPauseBtn" aria-label="Play or pause music">▶️</button>
     </div>
 
     <div class="stickers">
-      <span>✨</span> <span>💫</span> <span>🌙</span> <span>🌸</span> <span>💙</span>
+      <span>🌸</span>
+      <span>✨</span>
+      <span>💫</span>
+      <span>🌙</span>
+      <span>💙</span>
     </div>
   </main>
 
@@ -46,11 +55,11 @@
       const grievance = form.grievance.value.trim();
       if (!grievance) {
         response.textContent = "Please share something, love.";
-        response.style.color = "#d94f4f";
+        response.style.color = "#e07a5f";
         return;
       }
-      response.style.color = "#1e3a8a";
-      response.textContent = "Got it, Booboo! Sending you all my love 💙";
+      response.style.color = "#3a405a";
+      response.textContent = "Got it, Booboo! Sending you love 💙";
       form.grievance.value = "";
     });
 
