@@ -1,44 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Booboo's Grievance Portal 💙</title>
+  <title>Booboo's Portal 💙</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Sacramento&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Booboo's Grievance Portal 💙</h1>
-      <p class="subtitle">Tell me what's on your mind, aahad! ✨</p>
-    </header>
+  <main class="card">
+    <img src="image.jpg" alt="Booboo" class="profile" />
+    <h1>Hey Booboo 💙</h1>
+    <p class="sweet-msg">
+      You’re my sunshine on cloudy days, my calm in the chaos.  
+      This portal is a little space just for you — share anything,  
+      and I’m all ears, always.
+    </p>
 
-    <section class="image-section">
-      <img src="image.jpg" alt="Booboo's Picture" class="profile-image" />
-    </section>
+    <form id="grievanceForm" autocomplete="off">
+      <input type="text" id="name" name="name" value="aahad/booboo" readonly />
+      <textarea id="grievance" name="grievance" placeholder="Whisper your thoughts..." rows="4"></textarea>
+      <button type="submit" aria-label="Send message">Send 💌</button>
+    </form>
 
-    <section class="form-section">
-      <form id="grievanceForm">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" value="aahad/booboo" required />
+    <div id="response"></div>
 
-        <label for="grievance">Your Grievance 💌</label>
-        <textarea id="grievance" name="grievance" rows="5" placeholder="Write your heart out..."></textarea>
-
-        <button type="submit" class="btn">Send Love & Feedback 💖</button>
-      </form>
-
-      <div id="response" class="response"></div>
-    </section>
-
-    <section class="music-player">
+    <div class="music-container">
       <audio id="audio" src="mia-and-sebastian-theme.mp3" preload="auto"></audio>
-      <button id="playPauseBtn" aria-label="Play/Pause Music">▶️</button>
-      <span class="music-text">Play/ Pause "Mia & Sebastian Theme"</span>
-    </section>
+      <button id="playPauseBtn" aria-label="Play or pause music">▶️</button>
+    </div>
 
-  </div>
+    <div class="stickers">
+      <span>✨</span> <span>💫</span> <span>🌙</span> <span>🌸</span> <span>💙</span>
+    </div>
+  </main>
 
   <script>
     const form = document.getElementById('grievanceForm');
@@ -48,16 +43,15 @@
 
     form.addEventListener('submit', e => {
       e.preventDefault();
-      const name = form.name.value.trim() || 'aahad/booboo';
       const grievance = form.grievance.value.trim();
       if (!grievance) {
-        response.textContent = "Please share your grievance 💙";
-        response.style.color = '#f44336'; // red
+        response.textContent = "Please share something, love.";
+        response.style.color = "#d94f4f";
         return;
       }
-      response.style.color = '#0e68c7';
-      response.innerHTML = `Thank you, <strong>${name}</strong>! Your message has been received. 💌`;
-      form.grievance.value = '';
+      response.style.color = "#1e3a8a";
+      response.textContent = "Got it, Booboo! Sending you all my love 💙";
+      form.grievance.value = "";
     });
 
     playPauseBtn.addEventListener('click', () => {
