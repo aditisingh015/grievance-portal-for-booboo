@@ -3,154 +3,154 @@
 body {
   margin: 0;
   padding: 0;
+  background: #eaf4ff;
   font-family: 'Quicksand', sans-serif;
   overflow: hidden;
-  background-color: #f8fbff;
   position: relative;
 }
 
-/* Couple image in soft background */
-.bg-image {
+/* Background couple image */
+.background-image {
   background-image: url('image.jpg.JPG');
   background-size: cover;
   background-position: center;
-  opacity: 0.07;
+  opacity: 0.08;
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   z-index: 0;
 }
 
-/* Floating hearts background */
-.heart-layer::before {
-  content: "❤️ 💙 💖 💘 💞";
-  font-size: 30px;
-  position: absolute;
-  animation: floatHearts 20s linear infinite;
+/* Floating cloud emojis */
+.clouds {
+  position: fixed;
+  font-size: 60px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.3;
+  animation: floatClouds 100s linear infinite;
   white-space: nowrap;
-  opacity: 0.25;
-  z-index: 1;
 }
-@keyframes floatHearts {
-  0% { transform: translateY(100%); }
-  100% { transform: translateY(-200%); }
+@keyframes floatClouds {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-/* Drifting clouds */
-.cloud {
-  background: url('https://i.ibb.co/y6M5wqH/cloud.png') no-repeat;
-  background-size: contain;
-  position: absolute;
-  width: 200px;
-  height: 100px;
-  opacity: 0.2;
-  z-index: 1;
-  animation: drift 60s linear infinite;
-}
-
-.cloud-1 { top: 10%; left: -200px; animation-delay: 0s; }
-.cloud-2 { top: 30%; left: -250px; animation-delay: 10s; }
-.cloud-3 { top: 50%; left: -300px; animation-delay: 20s; }
-
-@keyframes drift {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(150vw); }
-}
-
-/* Main box */
-.container {
-  max-width: 600px;
-  margin: 12vh auto;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 25px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+/* Full screen sparkles */
+.sparkles::before {
+  content: "✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨";
+  font-size: 22px;
+  position: fixed;
+  width: 100%;
   text-align: center;
+  top: 20%;
+  left: 0;
+  z-index: 1;
+  opacity: 0.2;
+  animation: sparkleTwinkle 10s ease-in-out infinite;
+}
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.4; }
+}
+
+/* Portal Box */
+.container {
   position: relative;
-  z-index: 2;
-  border: 2px dashed #a8cfff;
+  z-index: 3;
+  background-color: #d4e8ff;
+  max-width: 600px;
+  margin: 13vh auto;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  border: 2px solid #b1d0f7;
+  text-align: center;
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
-  color: #6e9ecf;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  color: #3c6fa6;
   margin-bottom: 15px;
 }
 
 .love-note {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #444;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   line-height: 1.6;
 }
 
 textarea {
   width: 90%;
   height: 120px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 15px;
   padding: 15px;
   font-size: 1rem;
-  resize: none;
   font-family: 'Quicksand', sans-serif;
+  resize: none;
+  background: #ffffff;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
 }
 
 button {
   margin-top: 20px;
-  padding: 12px 30px;
-  background: #a4c9ff;
-  color: #fff;
+  padding: 12px 25px;
+  background: #5a9ee7;
+  color: white;
   border: none;
   border-radius: 30px;
-  cursor: pointer;
   font-size: 1rem;
+  cursor: pointer;
   transition: 0.3s ease;
 }
-
 button:hover {
-  background: #7fbfff;
+  background: #3f87ce;
 }
 
-/* Stickers */
-.decor {
+/* Butterflies */
+.butterfly {
   position: absolute;
-  z-index: 3;
+  width: 80px;
+  animation: flutter 6s ease-in-out infinite;
+  z-index: 2;
+}
+.butterfly1 { top: 20%; left: 5%; }
+.butterfly2 { top: 40%; right: 10%; }
+.butterfly3 { top: 70%; left: 30%; }
+
+@keyframes flutter {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Sparkle Image Sticker */
+.sparkle-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.1;
+  z-index: 1;
   pointer-events: none;
 }
 
-.butterfly {
-  width: 100px;
-  top: 10%;
-  left: 4%;
-  animation: float 6s ease-in-out infinite;
-}
-
-.sparkle {
-  width: 180px;
-  bottom: 6%;
-  right: 4%;
-  animation: twinkle 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(5deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-}
-
-/* Music control */
-audio {
+/* Music player centered at bottom */
+.music {
   position: fixed;
-  bottom: 15px;
-  left: 15px;
-  z-index: 10;
-  opacity: 0.85;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+audio {
+  filter: hue-rotate(180deg);
+  border-radius: 10px;
 }
