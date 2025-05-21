@@ -8,11 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="heart-background"></div>
   <div class="container">
-    <h1>Grievance Portal for Booboo</h1>
-    <p class="subtext">Because even love needs a feedback form sometimes.</p>
-    
+    <header>
+      <img src="image.jpg" alt="Our Couple Picture" class="profile-pic" />
+      <h1>Grievance Portal for Booboo</h1>
+      <p class="subtext">Because even love needs a feedback form sometimes.</p>
+    </header>
+
     <form>
       <label for="name">Your Name (or Nickname):</label>
       <input type="text" id="name" name="name" placeholder="aahad/booboo" required />
@@ -22,6 +24,11 @@
 
       <button type="submit">Send Love Complaint</button>
     </form>
+
+    <audio controls autoplay loop class="theme-song" aria-label="Mia and Sebastian theme song">
+      <source src="mia-and-sebastian-theme.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
   </div>
 </body>
 </html>
