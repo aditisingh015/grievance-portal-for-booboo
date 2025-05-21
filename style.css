@@ -1,211 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Grievance Portal for Booboo</title>
+/* Reset & base */
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box;
+}
 
-<!-- Google Fonts: Use something stylish but readable -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  overflow: hidden;
+  position: relative;
+  color: white;
+}
 
-<style>
-  /* Reset & base */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  body, html {
-    height: 100%;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298); /* beautiful blue gradient */
-    overflow: hidden;
-    position: relative;
-    color: white;
-  }
+/* Background butterfly floating animation */
+.butterfly {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  animation-name: floatButterfly;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
 
-  /* Background butterfly floating animation */
-  .butterfly {
-    position: fixed;
-    width: 80px;
-    height: 80px;
-    pointer-events: none;
-    animation-name: floatButterfly;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    animation-direction: alternate;
-  }
+.butterfly:nth-child(1) {
+  top: 20%;
+  left: 15%;
+  animation-duration: 6s;
+}
+.butterfly:nth-child(2) {
+  top: 60%;
+  left: 35%;
+  animation-duration: 8s;
+}
+.butterfly:nth-child(3) {
+  top: 40%;
+  left: 70%;
+  animation-duration: 5s;
+}
+.butterfly:nth-child(4) {
+  top: 80%;
+  left: 80%;
+  animation-duration: 7s;
+}
+.butterfly:nth-child(5) {
+  top: 10%;
+  left: 80%;
+  animation-duration: 6.5s;
+}
 
-  /* Spread butterflies at different spots and speeds */
-  .butterfly:nth-child(1) {
-    top: 20%;
-    left: 15%;
-    animation-duration: 6s;
-  }
-  .butterfly:nth-child(2) {
-    top: 60%;
-    left: 35%;
-    animation-duration: 8s;
-  }
-  .butterfly:nth-child(3) {
-    top: 40%;
-    left: 70%;
-    animation-duration: 5s;
-  }
-  .butterfly:nth-child(4) {
-    top: 80%;
-    left: 80%;
-    animation-duration: 7s;
-  }
-  .butterfly:nth-child(5) {
-    top: 10%;
-    left: 80%;
-    animation-duration: 6.5s;
-  }
+@keyframes floatButterfly {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); }
+  50% { transform: translateY(-20px) translateX(10px) rotate(10deg); }
+  100% { transform: translateY(0) translateX(0) rotate(0deg); }
+}
 
-  @keyframes floatButterfly {
-    0% { transform: translateY(0) translateX(0) rotate(0deg); }
-    50% { transform: translateY(-20px) translateX(10px) rotate(10deg); }
-    100% { transform: translateY(0) translateX(0) rotate(0deg); }
-  }
+/* Cloud emojis spread across background */
+.cloud {
+  position: fixed;
+  font-size: 6rem;
+  opacity: 0.15;
+  user-select: none;
+  pointer-events: none;
+}
+.cloud:nth-child(6) { top: 5%; left: 10%; }
+.cloud:nth-child(7) { top: 15%; left: 60%; }
+.cloud:nth-child(8) { top: 50%; left: 40%; }
+.cloud:nth-child(9) { top: 80%; left: 20%; }
+.cloud:nth-child(10) { top: 70%; left: 80%; }
 
-  /* Cloud emojis spread across background */
-  .cloud {
-    position: fixed;
-    font-size: 6rem;
-    opacity: 0.15;
-    user-select: none;
-    pointer-events: none;
-  }
-  .cloud:nth-child(6) { top: 5%; left: 10%; }
-  .cloud:nth-child(7) { top: 15%; left: 60%; }
-  .cloud:nth-child(8) { top: 50%; left: 40%; }
-  .cloud:nth-child(9) { top: 80%; left: 20%; }
-  .cloud:nth-child(10) { top: 70%; left: 80%; }
+/* Sparkles scattered */
+.sparkle {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  animation: twinkle 3s infinite ease-in-out;
+  opacity: 0.8;
+}
+.sparkle:nth-child(11) { top: 25%; left: 25%; animation-delay: 0s;}
+.sparkle:nth-child(12) { top: 35%; left: 75%; animation-delay: 1s;}
+.sparkle:nth-child(13) { top: 60%; left: 50%; animation-delay: 2s;}
+.sparkle:nth-child(14) { top: 85%; left: 30%; animation-delay: 0.5s;}
+.sparkle:nth-child(15) { top: 15%; left: 90%; animation-delay: 1.5s;}
 
-  /* Sparkles scattered */
-  .sparkle {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    pointer-events: none;
-    animation: twinkle 3s infinite ease-in-out;
-    opacity: 0.8;
-  }
-  .sparkle:nth-child(11) { top: 25%; left: 25%; animation-delay: 0s;}
-  .sparkle:nth-child(12) { top: 35%; left: 75%; animation-delay: 1s;}
-  .sparkle:nth-child(13) { top: 60%; left: 50%; animation-delay: 2s;}
-  .sparkle:nth-child(14) { top: 85%; left: 30%; animation-delay: 0.5s;}
-  .sparkle:nth-child(15) { top: 15%; left: 90%; animation-delay: 1.5s;}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; transform: scale(1);}
+  50% { opacity: 0.3; transform: scale(1.2);}
+}
 
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.8; transform: scale(1);}
-    50% { opacity: 0.3; transform: scale(1.2);}
-  }
+/* Center grievance box */
+.grievance-box {
+  position: relative;
+  max-width: 420px;
+  background: linear-gradient(135deg, rgba(30, 60, 120, 0.9), rgba(20, 40, 80, 0.8));
+  border-radius: 30px;
+  box-shadow:
+    0 8px 32px 0 rgba(38, 116, 255, 0.7),
+    inset 0 0 15px rgba(255, 255, 255, 0.1),
+    0 0 15px rgba(82, 147, 255, 0.6);
+  padding: 40px 35px 45px;
+  margin: 60px auto;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(82, 147, 255, 0.4);
+  transition: box-shadow 0.3s ease;
+}
 
-  /* Center grievance box */
-  .grievance-box {
-    position: relative;
-    max-width: 400px;
-    background: rgba(10, 50, 100, 0.8);
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
-    padding: 30px 40px;
-    margin: 60px auto;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-  }
+.grievance-box:hover {
+  box-shadow:
+    0 12px 48px 0 rgba(38, 116, 255, 0.9),
+    inset 0 0 25px rgba(255, 255, 255, 0.15),
+    0 0 25px rgba(82, 147, 255, 0.85);
+}
 
-  /* Couple pic styling */
-  .couple-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #82c0ff;
-    object-fit: cover;
-    margin-bottom: 20px;
-    box-shadow: 0 0 15px #5aa2ff;
-  }
+/* Couple pic styling */
+.couple-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #82c0ff;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px #5aa2ff;
+}
 
-  /* Heading fonts */
-  .title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    color: #aad8ff;
-  }
+/* Heading fonts */
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #aad8ff;
+}
 
-  .subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #cfe9ff;
-    font-weight: 600;
-  }
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #cfe9ff;
+  font-weight: 600;
+}
 
-  /* Button style */
-  button {
-    background: linear-gradient(45deg, #4e8cff, #2674ff);
-    border: none;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 40px;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(38, 116, 255, 0.5);
-    transition: background 0.3s ease;
-  }
-  button:hover {
-    background: linear-gradient(45deg, #2674ff, #4e8cff);
-  }
+/* Textarea styling */
+textarea {
+  width: 100%;
+  border-radius: 15px;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  resize: none;
+  border: 2px solid rgba(82, 147, 255, 0.6);
+  background: rgba(10, 30, 60, 0.8);
+  color: #d1e7ff;
+  box-shadow: inset 0 0 10px rgba(82, 147, 255, 0.4);
+  transition: border-color 0.3s ease;
+  margin-bottom: 30px;
+}
 
-  /* Audio player styling */
-  audio {
-    width: 100%;
-    margin-top: 25px;
-    outline: none;
-    filter: drop-shadow(0 0 5px #4a8aff);
-    border-radius: 10px;
-    background: rgba(30, 70, 130, 0.7);
-  }
+textarea::placeholder {
+  color: #aac8ff;
+  font-style: italic;
+}
 
-</style>
-</head>
-<body>
+textarea:focus {
+  border-color: #5aa2ff;
+  outline: none;
+  box-shadow: 0 0 15px #5aa2ff;
+}
 
-<!-- Butterflies floating all over -->
-<img src="butterfly.WEBP" alt="Butterfly" class="butterfly" />
-<img src="butterfly.WEBP" alt="Butterfly" class="butterfly" />
-<img src="butterfly.WEBP" alt="Butterfly" class="butterfly" />
-<img src="butterfly.WEBP" alt="Butterfly" class="butterfly" />
-<img src="butterfly.WEBP" alt="Butterfly" class="butterfly" />
+/* Button style */
+button {
+  background: linear-gradient(45deg, #5aa2ff, #2674ff);
+  border: none;
+  padding: 15px 45px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(38, 116, 255, 0.7);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
 
-<!-- Clouds emojis spread out -->
-<div class="cloud" style="top:5%; left:10%;">☁️</div>
-<div class="cloud" style="top:15%; left:60%;">☁️</div>
-<div class="cloud" style="top:50%; left:40%;">☁️</div>
-<div class="cloud" style="top:80%; left:20%;">☁️</div>
-<div class="cloud" style="top:70%; left:80%;">☁️</div>
+button:hover {
+  background: linear-gradient(45deg, #2674ff, #5aa2ff);
+  box-shadow: 0 8px 30px rgba(38, 116, 255, 1);
+}
 
-<!-- Sparkles -->
-<img src="sparkle.PNG" alt="Sparkle" class="sparkle" />
-<img src="sparkle.PNG" alt="Sparkle" class="sparkle" />
-<img src="sparkle.PNG" alt="Sparkle" class="sparkle" />
-<img src="sparkle.PNG" alt="Sparkle" class="sparkle" />
-<img src="sparkle.PNG" alt="Sparkle" class="sparkle" />
-
-<!-- Grievance box -->
-<div class="grievance-box">
-  <img src="image.jpg.JPG" alt="Couple Pic" class="couple-pic" />
-  <h1 class="title">Grievance Portal</h1>
-  <p class="subtitle">For Aahad & Booboo, with all my love.</p>
-  <button>Send with love</button>
-
-  <!-- Audio player -->
-  <audio controls autoplay loop>
-    <source src="mia-and-sebastian-theme.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-</div>
-
-</body>
-</html>
+/* Audio player styling */
+audio {
+  width: 100%;
+  max-width: 420px;
+  margin: 20px auto 40px;
+  display: block;
+  outline: none;
+  filter: drop-shadow(0 0 5px #4a8aff);
+  border-radius: 10px;
+  background: rgba(30, 70, 130, 0.7);
+}
